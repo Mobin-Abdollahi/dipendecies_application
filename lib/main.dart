@@ -1,3 +1,4 @@
+import 'package:dipendecies_application/view/main_sceen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Text("hello getx")
+      home: MainSceen()
     );
   }
 }
