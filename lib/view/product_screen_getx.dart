@@ -1,24 +1,31 @@
 import 'package:dipendecies_application/controller/product_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/instance_manager.dart';
-import 'package:get/route_manager.dart';
 
 
-class ProductScreen extends StatelessWidget {
- 
- ProductController productController = Get.put(ProductController());
+class ProductScreenGetx extends StatelessWidget {
+  const ProductScreenGetx({super.key});
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.green,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            Obx(((){
+            GetX(
+              autoRemove: true,
+              dispose: (state) {
+                state.dispose();
+              },
+              init: ProductController(),
+              builder: (ProductController productController){
+
+              
               return Column(
                 children: [
                   Text(
@@ -38,26 +45,22 @@ class ProductScreen extends StatelessWidget {
                     ),
                 ],
               );
-            })),
+
+            })
+            ,
 
             ElevatedButton(
               onPressed:((){
-                productController.productModel.update((Value){
+              Get.find<ProductController>().productModel.update((Value){
 
-                  Value!.name = "چیتوز فلفل";
-                  Value!.price = "1000";
-                  Value!.off = "50%";
-                  
-                });
+                Value!.name = "نوشابه";
+                Value.price = "9000";
+                Value.off = "20%";
+
+              });
               }), 
               child: Text("press"))
-              ,ElevatedButton(
-              onPressed:((){
-
-              Get.back();
-
-              }), 
-              child: Text("back"))
+              ,
           ],
         ),
       )

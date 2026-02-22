@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 
 class ProductController extends GetxController {
 
-  Rx<ProductModel> productModel;
+  Rx<ProductModel> productModel = ProductModel(name: "بستنی کیم", price: "15000", off: "50").obs;
 
-  ProductController({required this.productModel});
+
 
 }

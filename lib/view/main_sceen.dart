@@ -1,9 +1,7 @@
 import 'package:dipendecies_application/controller/product_controller.dart';
-import 'package:dipendecies_application/model/product_model.dart';
 import 'package:dipendecies_application/view/product_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_instance/get_instance.dart';
-import 'package:get/get_rx/get_rx.dart';
 import 'package:get/route_manager.dart';
 import 'package:get/state_manager.dart';
 
@@ -19,7 +17,7 @@ class MainSceen extends StatelessWidget {
 //getx
 //getbuilder
 
-ProductController productController = Get.put(ProductController(productModel:ProductModel(name: "بستنی کیم", price: "15000", off: "50").obs));
+ProductController productController = Get.put(ProductController());
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +65,7 @@ ProductController productController = Get.put(ProductController(productModel:Pro
               onPressed:((){
 
                Get.to(ProductScreen());
-               
+
               }), 
               child: Text("go"))
           ],
